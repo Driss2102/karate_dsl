@@ -1,0 +1,12 @@
+[
+  {
+    "username": "emilys",
+    "password": "emilyspass",
+    "expiresInMins": 60
+  },
+  {
+    "username": "sophiab",
+    "password": "sophiabpass",
+    "expiresInMins": 60
+  }
+]
