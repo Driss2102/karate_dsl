@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-4-thread-1","id":1},{"content":"pool-4-thread-2","id":2},{"content":"pool-4-thread-3","id":3},{"content":"pool-4-thread-4","id":4},{"content":"pool-4-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"src\/test\/resources\/karate\/test[1:7]","start":1741947112640,"end":1741947113545,"title":"src\/test\/resources\/karate\/test[1:7] 10:11:52.640-10:11:53.545 Login and Fetch Data"},{"id":2,"group":2,"content":"src\/test\/resources\/karate\/test[2:24]","start":1741947112729,"end":1741947113248,"title":"src\/test\/resources\/karate\/test[2:24] 10:11:52.729-10:11:53.248 Add Products with Title Only"},{"id":3,"group":3,"content":"src\/test\/resources\/karate\/testadd[1:6]","start":1741947112733,"end":1741947113212,"title":"src\/test\/resources\/karate\/testadd[1:6] 10:11:52.733-10:11:53.212 Login and Fetch Data from params","className":"failed"},{"id":4,"group":4,"content":"src\/test\/resources\/karate\/testcsv[1.1:53]","start":1741947112740,"end":1741947113663,"title":"src\/test\/resources\/karate\/testcsv[1.1:53] 10:11:52.740-10:11:53.663 Login and Fetch Data with multiple users"},{"id":5,"group":5,"content":"src\/test\/resources\/karate\/testcsv[1.2:53]","start":1741947112735,"end":1741947113652,"title":"src\/test\/resources\/karate\/testcsv[1.2:53] 10:11:52.735-10:11:53.652 Login and Fetch Data with multiple users"},{"id":6,"group":3,"content":"src\/test\/resources\/karate\/testcsv[2.1:76]","start":1741947113228,"end":1741947114145,"title":"src\/test\/resources\/karate\/testcsv[2.1:76] 10:11:53.228-10:11:54.145 Login and Fetch Data from json file"},{"id":7,"group":2,"content":"src\/test\/resources\/karate\/testcsv[2.2:76]","start":1741947113255,"end":1741947114146,"title":"src\/test\/resources\/karate\/testcsv[2.2:76] 10:11:53.255-10:11:54.146 Login and Fetch Data from json file"},{"id":8,"group":1,"content":"src\/test\/resources\/karate\/testGraphQL[1:8]","start":1741947113556,"end":1741947113771,"title":"src\/test\/resources\/karate\/testGraphQL[1:8] 10:11:53.556-10:11:53.771 Fetch country details using GraphQL query"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

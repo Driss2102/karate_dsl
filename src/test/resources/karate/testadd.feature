@@ -1,9 +1,9 @@
-Feature: Authenticate and Fetch Data from DummyJSON API
+Feature: Authenticate with externe data
 
   Background:
     * url 'https://dummyjson.com'
 
-  Scenario: Login and Fetch Data
+  Scenario: Login and Fetch Data from params
 
     * def username = karate.properties['username']
     * def password = karate.properties['password']

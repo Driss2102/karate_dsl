@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Karate Test Execution Report</title>
+<link rel="apple-touch-icon" href="spark/logo.png">
+<link rel="shortcut icon" href="spark/logo.png">
+<link rel="stylesheet" href="spark/spark-style.css">
+<link rel="stylesheet" href="spark/font-awesome.min.css">
+<script src="spark/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('spark/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary"></span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">mars 17, 2025 08:48:56 AM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Authenticate and Fetch Data from DummyJSON API</p>
+            <p class="text-sm">
+              <span>08:48:57</span> / <span>00:00:00:031</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Authenticate and Fetch Data from DummyJSON API</h5>
+<span class='badge badge-success'>03.17.2025 08:48:57</span>
+<span class='badge badge-danger'>03.17.2025 08:48:57</span>
+<span class='badge badge-default'>00:00:00:031</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Login and Fetch Data</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" >
+                <span>* url 'https://dummyjson.com'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>Given path '/auth/login'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>And request { username: 'sophiab', password: 'sophiabpass', expiresInMins: 60 }</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>And header Content-Type = 'application/json'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>When method post</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>Then status 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>* def authToken = response.accessToken</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>* print 'Token from login:', authToken</span>
+      <div>
+      </div>
+      <div>[print] 08:48:53.260 [print] Token from login: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJzb3BoaWFiIiwiZW1haWwiOiJzb3BoaWEuYnJvd25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiU29waGlhIiwibGFzdE5hbWUiOiJCcm93biIsImdlbmRlciI6ImZlbWFsZSIsImltYWdlIjoiaHR0cHM6Ly9kdW1teWpzb24uY29tL2ljb24vc29waGlhYi8xMjgiLCJpYXQiOjE3NDIyMDEzMzIsImV4cCI6MTc0MjIwNDkzMn0.AaKnckwBy8mwgr5YbJNVBJ32y0GNoKKiHsZNy4r4OWU 
+
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>Given path '/auth/me'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>And header Authorization = 'Bearer ' + authToken</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>And header Content-Type = 'application/json'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>When method get</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>Then status 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>* print response</span>
+      <div>
+      </div>
+      <div>[print] 08:48:54.018 [print] {
+  "id": 3,
+  "firstName": "Sophia",
+  "lastName": "Brown",
+  "maidenName": "",
+  "age": 42,
+  "gender": "female",
+  "email": "sophia.brown@x.dummyjson.com",
+  "phone": "+81 210-652-2785",
+  "username": "sophiab",
+  "password": "sophiabpass",
+  "birthDate": "1982-11-6",
+  "image": "https://dummyjson.com/icon/sophiab/128",
+  "bloodGroup": "O-",
+  "height": 177.72,
+  "weight": 52.6,
+  "eyeColor": "Hazel",
+  "hair": {
+    "color": "White",
+    "type": "Wavy"
+  },
+  "ip": "214.225.51.195",
+  "address": {
+    "address": "1642 Ninth Street",
+    "city": "Washington",
+    "state": "Alabama",
+    "stateCode": "AL",
+    "postalCode": "32822",
+    "coordinates": {
+      "lat": 45.289366,
+      "lng": 46.832664
+    },
+    "country": "United States"
+  },
+  "macAddress": "12:a3:d3:6f:5c:5b",
+  "university": "Pepperdine University",
+  "bank": {
+    "cardExpire": "04/25",
+    "cardNumber": "7795895470082859",
+    "cardType": "Korean Express",
+    "currency": "SEK",
+    "iban": "90XYKT83LMM7AARZ8JN958JC"
+  },
+  "company": {
+    "department": "Research and Development",
+    "name": "Schiller - Zieme",
+    "title": "Accountant",
+    "address": {
+      "address": "1896 Washington Street",
+      "city": "Dallas",
+      "state": "Nevada",
+      "stateCode": "NV",
+      "postalCode": "88511",
+      "coordinates": {
+        "lat": 20.086743,
+        "lng": -34.577107
+      },
+      "country": "United States"
+    }
+  },
+  "ein": "963-113",
+  "ssn": "638-461-822",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+  "crypto": {
+    "coin": "Bitcoin",
+    "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
+    "network": "Ethereum (ERC20)"
+  },
+  "role": "admin"
+}
+ 
+
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="17"><span class="badge log pass-bg mr-2">Pass</span>Add Products with Title Only</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" >
+                <span>* url 'https://dummyjson.com'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>Given path '/products/add'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>And request { "title": "product"}</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>And header Content-Type = 'application/json'</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>When method post</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>Then status 201</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" >
+                <span>* print response</span>
+      <div>
+      </div>
+      <div>[print] 08:48:53.261 [print] {
+  "id": 195,
+  "title": "product"
+}
+ 
+
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>mars 17, 2025 08:48:56 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>mars 17, 2025 08:48:57 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>1</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>0</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='100%'>
+<b>1</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='0%'><b>0</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='100%'><b>2</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='100%'><b>21</b> steps passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> steps failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"Authenticate and Fetch Data from DummyJSON API":0.031
+};
+</script>
+<div class="row">
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 1,
+failParent: 0,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 2,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 21,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="spark/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

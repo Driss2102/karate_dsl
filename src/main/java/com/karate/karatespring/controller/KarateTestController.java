@@ -1,14 +1,12 @@
 package com.karate.karatespring.controller;
 
-import com.intuit.karate.FileUtils;
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
+import com.karate.karatespring.config.CustomExtentReport;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 import java.util.List;
 import java.util.*;
@@ -27,6 +25,30 @@ public class KarateTestController {
                 results.getScenariosPassed(), results.getScenariosFailed()
         );
     }
+
+
+    @GetMapping("/runreport")
+    public String runKarateTestWithrep() {
+        String reportDir = "target/extended-reports";
+
+        Results results = Runner.path("src/test/resources/karate/test.feature")
+                .outputCucumberJson(true)
+                .parallel(4);
+
+        //pour la partie du Extent Report
+        CustomExtentReport extentReport = new CustomExtentReport()
+                .withKarateResult(results)
+                .withReportDir(reportDir)
+                .withReportTitle("Karate Test Execution Report");
+        extentReport.generateExtentReport();
+
+
+        return String.format(
+                "Scénarios Karate exécutés : %d réussis, %d échoués. Rapport généré dans target/karate-reports/ExtentReport.html",
+                results.getScenariosPassed(), results.getScenariosFailed()
+        );
+    }
+
 
     @GetMapping("/runchoose")
     public String runChoose(@RequestParam(required = false, defaultValue = "") String tags) {
@@ -54,10 +76,7 @@ public class KarateTestController {
 
 
     @GetMapping("/runTest")
-    public String runKarateTest(
-            @RequestParam("username") String username,
-            @RequestParam("password") String password,
-            @RequestParam("expiresInMins") int expiresInMins) {
+    public String runKarateTest(@RequestParam("username") String username,@RequestParam("password") String password,@RequestParam("expiresInMins") int expiresInMins) {
 
 
         System.out.println(" Requête reçue avec username: " + username + ", password: " + password + ", expiresInMins: " + expiresInMins);
@@ -68,6 +87,10 @@ public class KarateTestController {
                 .systemProperty("password", password)
                 .systemProperty("expiresInMins", String.valueOf(expiresInMins))
                 .reportDir("C:/Users/Lenovo/Desktop/karate-reports")
+                .outputCucumberJson(false)
+                .outputHtmlReport(true)
+                .outputJunitXml(false)
+
                 .parallel(1);
 
 
@@ -87,9 +110,15 @@ public class KarateTestController {
         );
     }
 
-
-
-
-
+    @GetMapping("/runGraphQLTest")
+    public String runGraphQLTest() {
+        Results results = Runner.path("src/test/resources/karate/testGraphQL.feature").parallel(1);
+        return String.format(
+                "Scénarios Karate exécutés : %d réussis, %d échoués",
+                results.getScenariosPassed(), results.getScenariosFailed()
+        );
+    }
 
 }
+
+

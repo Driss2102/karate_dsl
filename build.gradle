@@ -33,6 +33,10 @@ dependencies {
     implementation 'com.intuit.karate:karate-core:latest.release'
     implementation 'com.intuit.karate:karate-junit5:latest.release' // If you want to run via junit5
     testImplementation 'com.intuit.karate:karate-junit5:latest.release' // For tests. // Ajoutez karate-junit5
+    implementation 'tech.grasshopper:extentreports-cucumber7-adapter:1.7.0'
+    implementation 'net.masterthought:cucumber-reporting:5.7.6'
+    implementation 'com.aventstack:extentreports:5.0.9'
+
 
 }
 
