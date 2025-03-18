@@ -3,6 +3,7 @@ package com.karate.karatespring.controller;
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
 import com.karate.karatespring.config.CustomExtentReport;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/tests")
 public class KarateTestController {
 
+//    @Scheduled(fixedRate = 120000)
     @GetMapping("/run")
     public String runKarateTests() {
         Results results = Runner.path("src/test/resources/karate/test.feature").parallel(1);
@@ -50,7 +52,7 @@ public class KarateTestController {
                 results.getScenariosPassed(), results.getScenariosFailed()
         );
     }
-
+    @Scheduled(cron = "0 21 9 * * *")
     @GetMapping("/runCsv")
     public String runKarateTestscsv() {
         Results results = Runner.path("src/test/resources/karate/testcsv.feature").parallel(1);
@@ -85,7 +87,7 @@ public class KarateTestController {
         );
     }
 
-    @GetMapping("/runReport")
+    @GetMapping("/runreport")
     public String runKarateTestWithrep() {
         String reportDir = "target/extended-reports";
 
@@ -110,6 +112,15 @@ public class KarateTestController {
     @GetMapping("/runGraphQLTest")
     public String runGraphQLTest() {
         Results results = Runner.path("src/test/resources/karate/testGraphQL.feature").parallel(1);
+        String reportDir = "target/extended-reports";
+        //pour la partie du Extent Report
+        CustomExtentReport extentReport = new CustomExtentReport()
+                .withKarateResult(results)
+                .withReportDir(reportDir)
+                .withReportTitle("Karate Test Execution Report");
+        extentReport.generateExtentReport();
+
+
         return String.format(
                 "Scénarios Karate exécutés : %d réussis, %d échoués",
                 results.getScenariosPassed(), results.getScenariosFailed()
