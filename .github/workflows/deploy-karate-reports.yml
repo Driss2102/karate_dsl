@@ -25,7 +25,7 @@ jobs:
       - name: Deploy Reports to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: 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
           publish_dir: ./karate-reports
           publish_branch: gh-pages # Or a branch you choose for your reports
           force_orphan: true # creates the gh-pages branch if it doesnt exists.
