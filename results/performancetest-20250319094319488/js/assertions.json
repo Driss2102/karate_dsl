@@ -1,0 +1,10 @@
+{
+  "simulation": "PerformanceTest",
+  "simulationId": "performancetest-20250319094319488",
+  "start": 1742377402961,
+  "description": "",
+  "scenarios": ["Authenticate and Fetch Data"],
+  "assertions": [
+
+  ]
+}

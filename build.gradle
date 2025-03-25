@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.3'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'scala'
 }
 
 group = 'com.karate'
@@ -23,6 +24,8 @@ repositories {
     mavenCentral()
 }
 
+
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter'
@@ -38,8 +41,38 @@ dependencies {
     implementation 'com.aventstack:extentreports:5.0.9'
 
 
+    implementation 'org.scala-lang:scala-library:2.13.12'
+
+
+    testImplementation("com.intuit.karate:karate-gatling:1.4.1")
+    testImplementation("io.gatling:gatling-core:3.13.5")
+    testImplementation("io.gatling:gatling-app:3.13.5")
+    testImplementation("io.gatling:gatling-recorder:3.13.5")
+
+    runtimeOnly 'org.gradle:gradle-tooling-api:7.3-20210825160000+0000'
+
+    implementation 'software.amazon.awssdk:s3:2.20.46'
+
+
+    implementation 'org.xhtmlrenderer:flying-saucer-pdf:9.1.22'
+
+
 }
+
+
 
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
+tasks.create('gatlingRun', JavaExec) {
+    group = 'gatling'
+    description = 'Run Gatling performance tests'
+    mainClass = 'io.gatling.app.Gatling'
+    classpath = sourceSets.test.runtimeClasspath
+    args = ['-s', 'PerformanceTest', "-rf", "build/gatling-reports"]
+}
+
+
+

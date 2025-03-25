@@ -115,6 +115,7 @@ public class CustomExtentReport {
         // if the title of scenario is same, I will return same instance of extent test
         // else I will create a new instance and then return it
 
+
         if (this.scenarioTitle.equalsIgnoreCase(scenarioTitle)) {
             return scenarioNode;
         }
