@@ -3,9 +3,6 @@ package com.karate.karatespring.controller;
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
 import com.karate.karatespring.config.CustomExtentReport;
-import de.siegmar.fastcsv.reader.CsvReader;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -23,7 +20,6 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -42,17 +38,17 @@ public class KarateTestController {
 //    @Scheduled(fixedRate = 120000)
 @GetMapping("/run")
 public ResponseEntity<InputStreamResource> runTestsAndDownloadReport() throws IOException {
-    // 📌 1️⃣ Exécuter les tests Karate
+
     Results results = Runner.path("src/test/resources/karate/test.feature").parallel(1);
 
-    // 📌 2️⃣ Dossier du rapport Karate
+
     String reportDir = "target/karate-reports";
     String zipFilePath = "target/karate-reports.zip";
 
-    // 📌 3️⃣ Compresser le rapport
+
     zipDirectory(reportDir, zipFilePath);
 
-    // 📌 4️⃣ Envoyer le fichier ZIP en téléchargement
+
     File zipFile = new File(zipFilePath);
     InputStreamResource resource = new InputStreamResource(new FileInputStream(zipFile));
 
@@ -282,8 +278,16 @@ public ResponseEntity<InputStreamResource> runTestsAndDownloadReport() throws IO
 
 
 
+    @GetMapping("/runauth")
+    public String runKarateauth() {
+        Results results = Runner.path("src/test/resources/karate/authtestget.feature").parallel(1);
 
+        return String.format(
+                "Scénarios Karate exécutés : %d réussis, %d échoués",
+                results.getScenariosPassed(), results.getScenariosFailed(),results.getFeaturesTotal(),results.getReportDir()
 
+        );
+    }
 
 }
 

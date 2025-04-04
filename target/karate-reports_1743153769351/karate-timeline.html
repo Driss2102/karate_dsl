@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"scheduling-1","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/resources\/karate\/testcsv[1.1:26]","start":1743153670083,"end":1743153671469,"title":"src\/test\/resources\/karate\/testcsv[1.1:26] 09:21:10.083-09:21:11.469 Login and Fetch Data with multiple users"},{"id":2,"group":1,"content":"src\/test\/resources\/karate\/testcsv[1.2:26]","start":1743153671486,"end":1743153672554,"title":"src\/test\/resources\/karate\/testcsv[1.2:26] 09:21:11.486-09:21:12.554 Login and Fetch Data with multiple users"},{"id":3,"group":1,"content":"src\/test\/resources\/karate\/testcsv[2.1:49]","start":1743153672578,"end":1743153673535,"title":"src\/test\/resources\/karate\/testcsv[2.1:49] 09:21:12.578-09:21:13.535 Login and Fetch Data from json file"},{"id":4,"group":1,"content":"src\/test\/resources\/karate\/testcsv[2.2:49]","start":1743153673542,"end":1743153674724,"title":"src\/test\/resources\/karate\/testcsv[2.2:49] 09:21:13.542-09:21:14.724 Login and Fetch Data from json file"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

@@ -14,6 +14,6 @@ class KaratespringApplicationTests {
 
     @Karate.Test
     Karate runKarateTest() {
-        return Karate.run("classpath:karate/test.feature").relativeTo(getClass());
+        return Karate.run("classpath:karate/").relativeTo(getClass());
     }
 }
